@@ -36,6 +36,7 @@ def search(query: str, k: int = 5) -> pl.DataFrame:
 
 
 def main(k: int = 5):
+    pl.Config.set_tbl_rows(k)
     while True:
         q = typer.prompt("🔎 Search query")
 
