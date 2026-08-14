@@ -32,7 +32,7 @@ def search(query: str, k: int = 5) -> pl.DataFrame:
         e = model.encode(query).reshape(1, -1)
     dist, idx = index.search(e, k)
     res = df[idx.flatten()].with_columns(distance=dist.flatten())
-    return res.sort("distance").unique(subset="product_id", keep="first").slice(0, 10)
+    return res.sort("distance").unique(subset="product_id", keep="first").slice(0, k)
 
 
 def main(k: int = 5):
