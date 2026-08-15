@@ -17,7 +17,9 @@ index = faiss.IndexFlatL2(384)
 
 # encode batches and add to index
 batch_size = 250
-for batch in tqdm(df.iter_slices(n_rows=batch_size), total=math.ceil(len(df) / batch_size)):
+for batch in tqdm(
+    df.iter_slices(n_rows=batch_size), total=math.ceil(len(df) / batch_size)
+):
     items_list = batch.get_column("product_name").to_list()
     embeddings = model.encode(items_list, convert_to_tensor=True)
     index.add(embeddings)

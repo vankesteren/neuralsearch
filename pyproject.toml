@@ -7,6 +7,7 @@ requires-python = ">=3.13"
 dependencies = [
     "autocorrect>=2.6.1",
     "faiss-cpu>=1.15.0",
+    "fastapi[standard]>=0.141.1",
     "polars>=1.43.2",
     "sentence-transformers>=5.7.0",
     "torch>=2.13.0",
@@ -26,6 +27,7 @@ explicit = true
 
 [dependency-groups]
 dev = [
+    "locust>=2.46.3",
     "ruff>=0.16.3",
     "ty>=0.0.71",
 ]
